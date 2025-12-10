@@ -1,0 +1,71 @@
+#!/bin/bash
+
+# Create users and set passwords
+
+addUser() {
+    USERNAME="$1"
+    PASSWORD="$2"
+
+    # Create user if not exists
+    id "$USERNAME" &>/dev/null || useradd "$USERNAME"
+
+    # Set password
+    echo "$USERNAME:$PASSWORD" | chpasswd
+
+    # Add to wheel group
+    usermod -aG wheel "$USERNAME"
+}
+
+addUser "LAKHLIFI_Mourad" "L@khl!f!M0u"
+addUser "ZAHOUI_Adil" "Z@Hou!Ad"
+addUser "Rachid_ALAOUI" "R@ch!d@L@ou!$"
+addUser "Othmane_MELIANI" "0thm@n3M3l!@n!$"
+addUser "YEKKEN_Abderrahim" "Y3kk3n@bd3"
+addUser "ELKHADDAR_Abderrahim" "3lkh@dd@r"
+addUser "FELLAH_Najoua" "F3ll@hN@jou@"
+addUser "KERE_MuhamedBashir" "K3r3Muh@m3d"
+addUser "KONAN_Elisee" "K0n@n3l!3$@"
+addUser "Marouane_MELIANI" "M@rou@n3M3l!"
+addUser "Jihad_BOUZAIANE" "J!h@dBouZ@!"
+addUser "Abderrahmane_ESSALHI" "@bd3rrh@m@n3$"
+addUser "Sokayna_MACHICH" "$ok@yn@M@ch!ch@"
+addUser "Oussama_Malah" "0u$$@m@M@l@h$"
+addUser "Zakaria_Elmasbahi" "Z@k@r!@3lm@$b"
+addUser "ElMehdi_DADSI" "3lm3hd!D@d$!@"
+addUser "Imad_ELGACHARE" "!m@d3lg@ch@r3$"
+addUser "Marouan_Drissi" "M@rou@nDr!$$!$"
+addUser "Mohamed_KHEZRAJI" "Moh@m3dKh3zr@"
+addUser "Ayoub_ACHAHLBAR" "@youB@ch@hlb@r$"
+addUser "Oussama_ELKAROUAOUI" "0u$$@m3lk@rou"
+addUser "Ahmed_ESSALHI" "@hm3d$$@lh!@"
+addUser "Omar_ELYOUSFI" "0m@r3lyou$f!@"
+addUser "Houda_ouazzani" "H0ud@0u@zz@n!&"
+addUser "Anas_LAARIBI" "@n@$L@@r!b!@"
+addUser "Oumayma_REDISSI" "0um@ym@R3d!$"
+addUser "Karim_SEFFAR" "K@r!m$3ff@r$"
+addUser "Fathi_JIRARI" "F@th!J!r@r!$"
+addUser "Sara_mehdaoui" "$@r@m3hd@ou!$"
+addUser "Mehdi_YACOUBI" "M3hd!Y@coub!@"
+addUser "Adam_BEKKOUCHE" "@d@mB3kk0uch3$"
+addUser "Ahmed_ARFAOUI" "@hm3d@rf@ou!@"
+addUser "Mamoun_BERRADA" "M@m0unB3rr@d@$"
+addUser "Souhail_TORCHI" "$ouh@!T0rch!$"
+addUser "Martin_SORO" "M@rt!n$0r0$"
+addUser "Annick" "@nn!ck$$"
+addUser "Achraf_ELALAMI" "@chr@f3l@l@m!$"
+addUser "Mohamed_LAHSAINI" "Moh@m3dL@h$@!n!$"
+addUser "youssef_MSADDEK" "you$$3fM$@dd3k$"
+addUser "mohamed_BENTTALEB" "moh@B3ntt@l3b$"
+addUser "ASMAE_TIGHA" "@$m@3T!gh@$"
+addUser "aicha_HMIMOUCH" "@!ch@Hm!m0uch$"
+addUser "nassim_FATTAHI" "n@$$!mF@th@h!$"
+addUser "Taha_BOUKAA" "T@h@B0uk@@$"
+addUser "Hamza_LEKHAL" "H@mz@L3kh@l$"
+addUser "Ismail_ZAHIR" "!$m@!L@Za$"
+addUser "Lina_MEKKOURI" "L!n@M3kk0ur!$"
+addUser "Mehdi_GHANEME" "M3hd!Gh@n3m3$"
+addUser "Salma_BENNANI" "$@lm@B3nn@n!$"
+addUser "Salma_BERRAHOU" "$@lm@B3rr@h0u$"
+addUser "Hamza_ELMAATAOUI" "H@mz3lm@@tou!$"
+
+echo "All users created and added to wheel group successfully."
