@@ -1,21 +1,23 @@
-# --- CREATE USERS + ADMIN + RDP + PASSWORD NEVER EXPIRES ---
+# Force UTF-8 encoding for special characters
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-# User 1
-$pass1 = ConvertTo-SecureString "Gu2nD@Uz_ACS550" -AsPlainText -Force
+# USER 1
+$pass1 = "Gu2nD@Uz_ACS550" | ConvertTo-SecureString -AsPlainText -Force
 New-LocalUser -Name "guendouz_sofiane" -Password $pass1 -FullName "guendouz_sofiane" -PasswordNeverExpires $true
 Add-LocalGroupMember -Group "Administrators" -Member "guendouz_sofiane"
 Add-LocalGroupMember -Group "Remote Desktop Users" -Member "guendouz_sofiane"
 
-# User 2
-$pass2 = ConvertTo-SecureString "S_M@1n_ACS130" -AsPlainText -Force
+# USER 2
+$pass2 = "S_M@1n_ACS130" | ConvertTo-SecureString -AsPlainText -Force
 New-LocalUser -Name "aitboukrim_smain" -Password $pass2 -FullName "aitboukrim_smain" -PasswordNeverExpires $true
 Add-LocalGroupMember -Group "Administrators" -Member "aitboukrim_smain"
 Add-LocalGroupMember -Group "Remote Desktop Users" -Member "aitboukrim_smain"
 
-# User 3
-$pass3 = ConvertTo-SecureString "J1_&&#Y_ACS230" -AsPlainText -Force
+# USER 3 (caractères spéciaux protégés)
+$pass3 = "J1_&&#Y_ACS230" | ConvertTo-SecureString -AsPlainText -Force
 New-LocalUser -Name "thuillier_jimmy" -Password $pass3 -FullName "thuillier_jimmy" -PasswordNeverExpires $true
 Add-LocalGroupMember -Group "Administrators" -Member "thuillier_jimmy"
 Add-LocalGroupMember -Group "Remote Desktop Users" -Member "thuillier_jimmy"
 
-Write-Host "All users created and configured successfully." -ForegroundColor Green
+Write-Host "Users created successfully!"
+
