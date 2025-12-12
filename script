@@ -1,23 +1,19 @@
-# Force UTF-8 encoding for special characters
-[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
-
 # USER 1
-$pass1 = "Gu2nD@Uz_ACS550" | ConvertTo-SecureString -AsPlainText -Force
-New-LocalUser -Name "guendouz_sofiane" -Password $pass1 -FullName "guendouz_sofiane" -PasswordNeverExpires $true
-Add-LocalGroupMember -Group "Administrators" -Member "guendouz_sofiane"
-Add-LocalGroupMember -Group "Remote Desktop Users" -Member "guendouz_sofiane"
+net user "guendouz_sofiane" "Gu2nD@Uz_ACS550" /add
+wmic UserAccount where Name='guendouz_sofiane' set PasswordExpires=FALSE
+net localgroup "Administrators" "guendouz_sofiane" /add
+net localgroup "Remote Desktop Users" "guendouz_sofiane" /add
 
 # USER 2
-$pass2 = "S_M@1n_ACS130" | ConvertTo-SecureString -AsPlainText -Force
-New-LocalUser -Name "aitboukrim_smain" -Password $pass2 -FullName "aitboukrim_smain" -PasswordNeverExpires $true
-Add-LocalGroupMember -Group "Administrators" -Member "aitboukrim_smain"
-Add-LocalGroupMember -Group "Remote Desktop Users" -Member "aitboukrim_smain"
+net user "aitboukrim_smain" "S_M@1n_ACS130" /add
+wmic UserAccount where Name='aitboukrim_smain' set PasswordExpires=FALSE
+net localgroup "Administrators" "aitboukrim_smain" /add
+net localgroup "Remote Desktop Users" "aitboukrim_smain" /add
 
-# USER 3 (caractères spéciaux protégés)
-$pass3 = "J1_&&#Y_ACS230" | ConvertTo-SecureString -AsPlainText -Force
-New-LocalUser -Name "thuillier_jimmy" -Password $pass3 -FullName "thuillier_jimmy" -PasswordNeverExpires $true
-Add-LocalGroupMember -Group "Administrators" -Member "thuillier_jimmy"
-Add-LocalGroupMember -Group "Remote Desktop Users" -Member "thuillier_jimmy"
+# USER 3
+net user "thuillier_jimmy" "J1_&&#Y_ACS230" /add
+wmic UserAccount where Name='thuillier_jimmy' set PasswordExpires=FALSE
+net localgroup "Administrators" "thuillier_jimmy" /add
+net localgroup "Remote Desktop Users" "thuillier_jimmy" /add
 
-Write-Host "Users created successfully!"
-
+Write-Host "All users created and configured successfully!" -ForegroundColor Green
