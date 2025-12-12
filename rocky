@@ -1,0 +1,28 @@
+# --- CREATE USERS + SUDO + XRDP + PASSWORD NEVER EXPIRES ---
+
+# User 1
+useradd guendouz_sofiane
+echo "guendouz_sofiane:Gu2nD@Uz_ACS550" | sudo chpasswd
+usermod -aG wheel guendouz_sofiane
+chage -I -1 -m 0 -M 99999 -E -1 guendouz_sofiane
+
+# User 2
+useradd aitboukrim_smain
+echo "aitboukrim_smain:S_M@1n_ACS130" | sudo chpasswd
+usermod -aG wheel aitboukrim_smain
+chage -I -1 -m 0 -M 99999 -E -1 aitboukrim_smain
+
+# User 3
+useradd thuillier_jimmy
+echo "thuillier_jimmy:J1_&&#Y_ACS230" | sudo chpasswd
+usermod -aG wheel thuillier_jimmy
+chage -I -1 -m 0 -M 99999 -E -1 thuillier_jimmy
+
+# Optional: Add to xrdp group if installed
+if getent group xrdp >/dev/null; then
+    usermod -aG xrdp guendouz_sofiane
+    usermod -aG xrdp aitboukrim_smain
+    usermod -aG xrdp thuillier_jimmy
+fi
+
+echo "All users created, passwords applied, sudo activated, and expiration disabled."
