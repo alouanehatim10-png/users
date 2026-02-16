@@ -1,19 +1,11 @@
-# USER 1
-net user "guendouz_sofiane" "Gu2nD@Uz_ACS550" /add
-wmic UserAccount where Name='guendouz_sofiane' set PasswordExpires=FALSE
-net localgroup "Administrators" "guendouz_sofiane" /add
-net localgroup "Remote Desktop Users" "guendouz_sofiane" /add
+Match User somei_user
+    ChrootDirectory C:\SFTP
+    ForceCommand internal-sftp
+    AllowTcpForwarding no
+    X11Forwarding no
 
-# USER 2
-net user "aitboukrim_smain" "S_M@1n_ACS130" /add
-wmic UserAccount where Name='aitboukrim_smain' set PasswordExpires=FALSE
-net localgroup "Administrators" "aitboukrim_smain" /add
-net localgroup "Remote Desktop Users" "aitboukrim_smain" /add
-
-# USER 3
-net user "thuillier_jimmy" "J1_&&#Y_ACS230" /add
-wmic UserAccount where Name='thuillier_jimmy' set PasswordExpires=FALSE
-net localgroup "Administrators" "thuillier_jimmy" /add
-net localgroup "Remote Desktop Users" "thuillier_jimmy" /add
-
-Write-Host "All users created and configured successfully!" -ForegroundColor Green
+Match User z.boulayad
+    ChrootDirectory C:\SFTP
+    ForceCommand internal-sftp
+    AllowTcpForwarding no
+    X11Forwarding no
