@@ -1,11 +1,1 @@
-Match User somei_user
-    ChrootDirectory C:\SFTP
-    ForceCommand internal-sftp
-    AllowTcpForwarding no
-    X11Forwarding no
-
-Match User z.boulayad
-    ChrootDirectory C:\SFTP
-    ForceCommand internal-sftp
-    AllowTcpForwarding no
-    X11Forwarding no
+openssl s_client -connect subscription.rhsm.redhat.com:443 -servername subscription.rhsm.redhat.com
